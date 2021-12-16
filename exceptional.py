@@ -24,8 +24,8 @@ def convert(s):
     # except (KeyError, TypeError):
     #     print("Conversion failed")
     #     return -1
-    except (KeyError, TypeError) as e:
-        print(f"Conversion error: {e!r}", file=sys.stderr)
+    except (KeyError, TypeError) as expr:
+        print(f"Conversion error: {expr!r}", file=sys.stderr)
         return -1
 
 
