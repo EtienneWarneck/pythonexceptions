@@ -1,4 +1,5 @@
 import sys
+from math import log
 
 DIGIT_MAP = {
     "zero": "0",
@@ -26,9 +27,19 @@ def convert(s):
     #     return -1
     except (KeyError, TypeError) as expr:
         print(f"Conversion error: {expr!r}", file=sys.stderr)
-        return -1
+        # raise is used to see the exception from convert instead of code error from log.
+        raise
 
 
-print(convert("one three three seven".split()))
-print(convert("eleventeen".split()))
-print(convert(512))
+def string_log(s):
+    v = convert(s)
+    return log(v)
+
+
+# print(convert("one three three seven".split()))
+# print(convert("eleventeen".split()))
+# print(convert(512))
+print(string_log)
+# will create 2 errors: TypeError(from convert()) and ValueError(from log())
+print(string_log("text".split()))
+# print(string_log(567))
