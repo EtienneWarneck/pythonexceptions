@@ -1,5 +1,3 @@
-import sys
-
 DIGIT_MAP = {
     "zero": "0",
     "one": "1",
@@ -15,12 +13,29 @@ DIGIT_MAP = {
 
 
 def convert(s):
-    """Converts a string to an integer."""
     try:
         number = ""
         for token in s:
             number += DIGIT_MAP[token]
-        print(f"Conversion succeeded! x={x}")
-    except (KeyError, TypeError) as e:
-        print(f"Conversion error: {e!r}", file=sys.stderr)
-    return -1
+        x = int(number)
+        print(f"Conversion succeded x = {x}")
+    except KeyError:
+        print("Conversion failed")
+        x = -1
+        return x
+    except TypeError:
+        print("Conversion failed")
+        x = -1
+        return x
+
+
+print(convert("one three three seven".split()))
+print(convert("eleventeen".split()))
+print(convert("512".split()))
+
+
+# print(f"Conversion succeeded! x={x}")
+# except (KeyError, TypeError) as e:
+
+#     print(f"Conversion error: {e!r}", file=sys.stderr)
+# return -1
