@@ -1,3 +1,5 @@
+import sys
+
 DIGIT_MAP = {
     "zero": "0",
     "one": "1",
@@ -19,18 +21,14 @@ def convert(s):
             number += DIGIT_MAP[token]
         x = int(number)
         print(f"Conversion succeded x = {x}")
-    except (KeyError, TypeError):
-        print("Conversion failed")
+    # except (KeyError, TypeError):
+    #     print("Conversion failed")
+    #     return -1
+    except (KeyError, TypeError) as e:
+        print(f"Conversion error: {e!r}", file=sys.stderr)
         return -1
 
 
 print(convert("one three three seven".split()))
 print(convert("eleventeen".split()))
 print(convert(512))
-
-
-# print(f"Conversion succeeded! x={x}")
-# except (KeyError, TypeError) as e:
-
-#     print(f"Conversion error: {e!r}", file=sys.stderr)
-# return -1
