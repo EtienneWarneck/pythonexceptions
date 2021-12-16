@@ -19,19 +19,14 @@ def convert(s):
             number += DIGIT_MAP[token]
         x = int(number)
         print(f"Conversion succeded x = {x}")
-    except KeyError:
+    except (KeyError, TypeError):
         print("Conversion failed")
-        x = -1
-        return x
-    except TypeError:
-        print("Conversion failed")
-        x = -1
-        return x
+        return -1
 
 
 print(convert("one three three seven".split()))
 print(convert("eleventeen".split()))
-print(convert("512".split()))
+print(convert(512))
 
 
 # print(f"Conversion succeeded! x={x}")
